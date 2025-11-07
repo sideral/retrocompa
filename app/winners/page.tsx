@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface Results {
   totalVotes: number;
   costumeWinners: Array<{ id: string; name: string; count: number }>;
-  karaokeWinner: { id: string; name: string; count: number } | null;
+  karaokeWinners: Array<{ id: string; name: string; count: number }> | null;
   guestsWithStatus: Array<{
     id: string;
     name: string;
@@ -89,15 +89,18 @@ export default function Winners() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              {results.karaokeWinner ? (
-                <div className="text-center space-y-2">
-                  <p className="text-2xl font-bold text-retro-brown">
-                    {results.karaokeWinner.name}
-                  </p>
-                  <p className="text-retro-orange text-lg">
-                    {results.karaokeWinner.count} voto
-                    {results.karaokeWinner.count !== 1 ? "s" : ""}
-                  </p>
+              {results.karaokeWinners && results.karaokeWinners.length > 0 ? (
+                <div className="space-y-3">
+                  {results.karaokeWinners.map((winner) => (
+                    <div key={winner.id} className="text-center p-2 bg-retro-pink/10 rounded">
+                      <p className="text-2xl font-bold text-retro-brown">
+                        {winner.name}
+                      </p>
+                      <p className="text-retro-pink text-lg">
+                        {winner.count} voto{winner.count !== 1 ? "s" : ""}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <p className="text-center text-retro-brown/70">
@@ -116,19 +119,40 @@ export default function Winners() {
             <CardContent>
               {results.costumeWinners.length > 0 ? (
                 <div className="space-y-3">
-                  {results.costumeWinners.map((winner, idx) => (
-                    <div
-                      key={winner.id}
-                      className="text-center p-2 bg-retro-orange/10 rounded"
-                    >
-                      <p className="font-bold text-retro-brown text-lg">
-                        {idx + 1}. {winner.name}
-                      </p>
-                      <p className="text-retro-orange">
-                        {winner.count} voto{winner.count !== 1 ? "s" : ""}
-                      </p>
-                    </div>
-                  ))}
+                  {(() => {
+                    // Group by vote count to show ties properly
+                    const grouped = results.costumeWinners.reduce((acc, winner) => {
+                      if (!acc[winner.count]) {
+                        acc[winner.count] = [];
+                      }
+                      acc[winner.count].push(winner);
+                      return acc;
+                    }, {} as Record<number, typeof results.costumeWinners>);
+
+                    const sortedCounts = Object.keys(grouped)
+                      .map(Number)
+                      .sort((a, b) => b - a);
+
+                    let rank = 1;
+                    return sortedCounts.flatMap((count) => {
+                      const winners = grouped[count];
+                      const currentRank = rank;
+                      rank += winners.length;
+                      return winners.map((winner) => (
+                        <div
+                          key={winner.id}
+                          className="text-center p-2 bg-retro-orange/10 rounded"
+                        >
+                          <p className="font-bold text-retro-brown text-lg">
+                            {currentRank}. {winner.name}
+                          </p>
+                          <p className="text-retro-orange">
+                            {winner.count} voto{winner.count !== 1 ? "s" : ""}
+                          </p>
+                        </div>
+                      ));
+                    });
+                  })()}
                 </div>
               ) : (
                 <p className="text-center text-retro-brown/70">

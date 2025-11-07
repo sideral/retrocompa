@@ -74,8 +74,7 @@ export async function getVotingResults() {
   const supabase = await createClient();
 
   // Get all votes
-  const { data: votes, error: votesError } = await supabase
-    .from("votes")
+  const { data: votes, error: votesError } = await supabase.from("votes")
     .select(`
       *,
       voters:guests!votes_voter_id_fkey(name),
@@ -99,20 +98,33 @@ export async function getVotingResults() {
     );
   });
 
-  // Get costume winners (top 2)
+  // Get costume winners (top 2, including ties)
   const costumeEntries = Object.entries(costumeCounts)
     .map(([id, count]) => ({ id, count }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 2);
+    .sort((a, b) => b.count - a.count);
+
+  // Get top count and second top count
+  const topCount = costumeEntries[0]?.count || 0;
+  const secondCount =
+    costumeEntries.find((e) => e.count < topCount)?.count || topCount;
+
+  // Include all entries with top count or second count
+  const topTwoEntries = costumeEntries.filter(
+    (e) => e.count === topCount || e.count === secondCount
+  );
 
   const costumeWinners = await Promise.all(
-    costumeEntries.map(async ({ id }) => {
+    topTwoEntries.map(async ({ id }) => {
       const { data } = await supabase
         .from("guests")
         .select("name")
         .eq("id", id)
         .single();
-      return { id, name: data?.name || "Desconocido", count: costumeCounts[id] };
+      return {
+        id,
+        name: data?.name || "Desconocido",
+        count: costumeCounts[id],
+      };
     })
   );
 
@@ -125,24 +137,31 @@ export async function getVotingResults() {
     }
   });
 
-  // Get karaoke winner (top 1)
-  const karaokeEntry = Object.entries(karaokeCounts)
+  // Get karaoke winners (top 1, including ties)
+  const karaokeEntries = Object.entries(karaokeCounts)
     .map(([id, count]) => ({ id, count }))
-    .sort((a, b) => b.count - a.count)[0];
+    .sort((a, b) => b.count - a.count);
 
-  let karaokeWinner = null;
-  if (karaokeEntry) {
-    const { data } = await supabase
-      .from("families")
-      .select("name")
-      .eq("id", karaokeEntry.id)
-      .single();
-    karaokeWinner = {
-      id: karaokeEntry.id,
-      name: data?.name || "Desconocido",
-      count: karaokeEntry.count,
-    };
-  }
+  const topKaraokeCount = karaokeEntries[0]?.count || 0;
+  const topKaraokeEntries = karaokeEntries.filter(
+    (e) => e.count === topKaraokeCount
+  );
+
+  // For karaoke, return array of winners (can be multiple in case of tie)
+  const karaokeWinners = await Promise.all(
+    topKaraokeEntries.map(async ({ id }) => {
+      const { data } = await supabase
+        .from("families")
+        .select("name")
+        .eq("id", id)
+        .single();
+      return {
+        id,
+        name: data?.name || "Desconocido",
+        count: karaokeCounts[id],
+      };
+    })
+  );
 
   // Get all guests with vote status
   const { data: allGuests } = await supabase
@@ -163,9 +182,8 @@ export async function getVotingResults() {
     results: {
       totalVotes: votes.length,
       costumeWinners,
-      karaokeWinner,
+      karaokeWinners: karaokeWinners.length > 0 ? karaokeWinners : null,
       guestsWithStatus,
     },
   };
 }
-
