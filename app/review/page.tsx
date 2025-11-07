@@ -26,14 +26,20 @@ function ReviewContent() {
     async function loadNames() {
       const supabase = createClient();
 
-      // Get costume vote names
+      // Get costume vote names - preserve order by fetching all and mapping
       const { data: costumeGuests } = await supabase
         .from("guests")
-        .select("name")
+        .select("id, name")
         .in("id", costumeVotes);
 
       if (costumeGuests) {
-        setCostumeNames(costumeGuests.map((g) => g.name));
+        // Create a map for quick lookup
+        const guestMap = new Map(costumeGuests.map((g) => [g.id, g.name]));
+        // Map costumeVotes array (which is in correct order) to names
+        const orderedNames = costumeVotes
+          .map((id) => guestMap.get(id))
+          .filter((name): name is string => name !== undefined);
+        setCostumeNames(orderedNames);
       }
 
       // Get karaoke family name
