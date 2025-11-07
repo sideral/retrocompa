@@ -67,15 +67,25 @@
       transform: scale(1);
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
+    25% {
+      opacity: 0.85;
+      transform: scale(1.05);
+      box-shadow: 0 20px 25px -5px rgba(251, 146, 60, 0.4), 0 10px 10px -5px rgba(251, 146, 60, 0.2);
+    }
     50% {
-      opacity: 0.9;
-      transform: scale(1.02);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      opacity: 1;
+      transform: scale(1.08);
+      box-shadow: 0 25px 30px -5px rgba(251, 146, 60, 0.5), 0 15px 15px -5px rgba(251, 146, 60, 0.3);
+    }
+    75% {
+      opacity: 0.85;
+      transform: scale(1.05);
+      box-shadow: 0 20px 25px -5px rgba(251, 146, 60, 0.4), 0 10px 10px -5px rgba(251, 146, 60, 0.2);
     }
   }
   
   .button-active-pulse:not(:disabled) {
-    animation: elegant-pulse 2s ease-in-out infinite;
+    animation: elegant-pulse 0.6s ease-in-out infinite;
   }
 }
 
