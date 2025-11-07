@@ -97,7 +97,7 @@ function VoteCostumeContent() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-retro-brown text-center text-lg">
-              ¡Dale, parcero! Elige a los{" "}
+              Elige a los{" "}
               <span className="font-bold text-retro-orange">3 más bacanos</span>{" "}
               con sus disfraces. No importa el orden, solo elige a los que más
               te cuadraron.

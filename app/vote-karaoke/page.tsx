@@ -87,7 +87,7 @@ function VoteKaraokeContent() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-retro-brown text-center text-lg">
-              ¡Ahora sí, parcero! Elige a la{" "}
+              Elige a la{" "}
               <span className="font-bold text-retro-pink">familia que más se rajó</span>{" "}
               en el karaoke. Solo puedes elegir una, así que piénsalo bien.
             </p>

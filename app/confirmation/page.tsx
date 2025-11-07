@@ -9,7 +9,7 @@ export default function Confirmation() {
         <Card className="bg-white/95 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-center text-retro-teal text-4xl">
-              ¡Listo, Parcero! 🎉
+              ¡Listo! 🎉
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6 text-center">
