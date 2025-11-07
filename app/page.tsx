@@ -1,11 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-retro-gold via-retro-orange/20 to-retro-pink/20 flex flex-col items-center justify-center px-4 py-8">
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-6">
         <div className="text-center space-y-4">
           <h1 className="text-6xl font-groovy text-retro-brown drop-shadow-lg">
             RetroCompa
@@ -13,6 +14,17 @@ export default function Home() {
           <p className="text-3xl font-groovy text-retro-orange drop-shadow">
             2025
           </p>
+        </div>
+
+        <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border-4 border-retro-brown shadow-2xl">
+          <Image
+            src="/assets/photo_2025-11-07_16-39-27.jpg"
+            alt="RetroCompa 2025"
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 400px"
+          />
         </div>
 
         <Card className="bg-white/95 backdrop-blur-sm">

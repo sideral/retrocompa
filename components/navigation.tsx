@@ -23,10 +23,31 @@ export function Navigation() {
   };
 
   const getBackUrl = () => {
+    // Go back one step, preserving necessary params
     if (pathname === "/select-guest") return "/";
-    if (pathname === "/vote-costume") return "/select-guest";
-    if (pathname === "/vote-karaoke") return guestId ? `/vote-costume?guestId=${guestId}` : "/vote-costume";
-    if (pathname === "/review") return guestId ? `/vote-karaoke?guestId=${guestId}` : "/vote-karaoke";
+    if (pathname === "/vote-costume") {
+      // Back to guest selection (no params needed)
+      return "/select-guest";
+    }
+    if (pathname === "/vote-karaoke") {
+      // Back to costume vote, preserve guestId
+      const votes = searchParams.get("votes");
+      if (guestId) {
+        return `/vote-costume?guestId=${guestId}`;
+      }
+      return "/vote-costume";
+    }
+    if (pathname === "/review") {
+      // Back to karaoke vote, preserve guestId and costume votes
+      const costumeVotes = searchParams.get("costumeVotes");
+      if (guestId && costumeVotes) {
+        return `/vote-karaoke?guestId=${guestId}&votes=${costumeVotes}`;
+      }
+      if (guestId) {
+        return `/vote-karaoke?guestId=${guestId}`;
+      }
+      return "/vote-karaoke";
+    }
     return "/";
   };
 

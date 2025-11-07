@@ -69,7 +69,7 @@ function ReviewContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-8">
+    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-24">
       <div className="max-w-md mx-auto px-4 space-y-6">
         <Card className="bg-white/95">
           <CardHeader>
@@ -110,15 +110,19 @@ function ReviewContent() {
             </p>
           </CardContent>
         </Card>
-
-        <Button
-          onClick={handleSubmit}
-          disabled={submitting}
-          size="lg"
-          className="w-full"
-        >
-          {submitting ? "Enviando..." : "Confirmar y enviar"}
-        </Button>
+      </div>
+      
+      <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
+        <div className="max-w-md mx-auto px-4 py-4">
+          <Button
+            onClick={handleSubmit}
+            disabled={submitting}
+            size="lg"
+            className="w-full"
+          >
+            {submitting ? "Enviando..." : "Confirmar y enviar"}
+          </Button>
+        </div>
       </div>
     </div>
   );
