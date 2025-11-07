@@ -64,7 +64,7 @@ export default function SelectGuest() {
             onClick={handleContinue}
             disabled={!selectedGuest}
             size="lg"
-            className="w-full"
+            className={`w-full ${selectedGuest ? 'button-active-pulse' : ''}`}
           >
             Continuar
           </Button>

@@ -94,7 +94,7 @@ function VoteCostumeContent() {
             onClick={handleContinue}
             disabled={selectedGuests.size !== 3}
             size="lg"
-            className="w-full"
+            className={`w-full ${selectedGuests.size === 3 ? 'button-active-pulse' : ''}`}
           >
             Continuar
           </Button>

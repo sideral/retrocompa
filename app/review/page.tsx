@@ -82,7 +82,7 @@ function ReviewContent() {
             onClick={handleSubmit}
             disabled={submitting}
             size="lg"
-            className="w-full"
+            className={`w-full ${!submitting ? 'button-active-pulse' : ''}`}
           >
             {submitting ? "Enviando..." : "Confirmar y enviar"}
           </Button>

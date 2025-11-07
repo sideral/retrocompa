@@ -84,7 +84,7 @@ function VoteKaraokeContent() {
             onClick={handleContinue}
             disabled={!selectedFamily}
             size="lg"
-            className="w-full"
+            className={`w-full ${selectedFamily ? 'button-active-pulse' : ''}`}
           >
             Continuar
           </Button>
@@ -102,7 +102,7 @@ function VoteKaraokeContent() {
             <CardContent className="space-y-4">
               <p className="text-retro-brown text-center text-lg">
                 Elige a la{" "}
-                <span className="font-bold text-retro-pink">familia que más se rajó</span>{" "}
+                <span className="font-bold text-retro-pink">familia que más se lució</span>{" "}
                 en el karaoke. Solo puedes elegir una, así que piénsalo bien.
               </p>
               <div className="space-y-2 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">

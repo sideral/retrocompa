@@ -36,7 +36,7 @@ export default function Home() {
               </span>{" "}
               y por la{" "}
               <span className="font-bold text-retro-pink">
-                familia que más se rajó en el karaoke
+                familia que más se lució en el karaoke
               </span>
               . ¡Así que dale, que la fiesta está que arde!
             </p>
