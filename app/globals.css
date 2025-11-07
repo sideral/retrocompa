@@ -60,32 +60,44 @@
     z-index: 10;
   }
   
-  /* Elegant button pulse animation when active */
-  @keyframes elegant-pulse {
-    0%, 100% {
-      opacity: 1;
+  /* Dramatic button pulse animation when active */
+  @keyframes dramatic-pulse {
+    0% {
+      background-color: rgb(251, 146, 60);
+      color: white;
       transform: scale(1);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.7);
     }
     25% {
-      opacity: 0.85;
+      background-color: rgb(34, 197, 94);
+      color: white;
       transform: scale(1.05);
-      box-shadow: 0 20px 25px -5px rgba(251, 146, 60, 0.4), 0 10px 10px -5px rgba(251, 146, 60, 0.2);
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.5);
     }
     50% {
-      opacity: 1;
-      transform: scale(1.08);
-      box-shadow: 0 25px 30px -5px rgba(251, 146, 60, 0.5), 0 15px 15px -5px rgba(251, 146, 60, 0.3);
+      background-color: rgb(59, 130, 246);
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 0 15px rgba(59, 130, 246, 0.3), 0 25px 30px -5px rgba(59, 130, 246, 0.7);
     }
     75% {
-      opacity: 0.85;
+      background-color: rgb(34, 197, 94);
+      color: white;
       transform: scale(1.05);
-      box-shadow: 0 20px 25px -5px rgba(251, 146, 60, 0.4), 0 10px 10px -5px rgba(251, 146, 60, 0.2);
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.5);
+    }
+    100% {
+      background-color: rgb(251, 146, 60);
+      color: white;
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.7);
     }
   }
   
   .button-active-pulse:not(:disabled) {
-    animation: elegant-pulse 0.6s ease-in-out infinite;
+    animation: dramatic-pulse 0.6s ease-in-out infinite;
+    font-weight: 700 !important;
+    border: 3px solid rgb(59, 130, 246) !important;
   }
 }
 
