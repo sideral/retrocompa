@@ -1,0 +1,137 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { getAllGuests } from "@/app/actions/votes";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+
+interface Guest {
+  id: string;
+  name: string;
+}
+
+export default function VoteCostume() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const guestId = searchParams.get("guestId");
+  const [allGuests, setAllGuests] = useState<Guest[]>([]);
+  const [selectedGuests, setSelectedGuests] = useState<Set<string>>(new Set());
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!guestId) {
+      router.push("/select-guest");
+      return;
+    }
+
+    async function loadGuests() {
+      const result = await getAllGuests();
+      if (result.guests) {
+        // Filter out the voter
+        const filtered = result.guests.filter(
+          (g: Guest) => g.id !== guestId
+        ) as Guest[];
+        setAllGuests(filtered);
+      }
+      setLoading(false);
+    }
+    loadGuests();
+  }, [guestId, router]);
+
+  const handleToggle = (guestId: string) => {
+    setSelectedGuests((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(guestId)) {
+        newSet.delete(guestId);
+      } else {
+        if (newSet.size < 3) {
+          newSet.add(guestId);
+        }
+      }
+      return newSet;
+    });
+  };
+
+  const handleContinue = () => {
+    if (selectedGuests.size === 3) {
+      const votes = Array.from(selectedGuests);
+      router.push(
+        `/vote-karaoke?guestId=${guestId}&votes=${votes.join(",")}`
+      );
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-retro-gold pt-20 px-4">
+        <div className="max-w-md mx-auto text-center py-20">
+          <p className="text-retro-brown text-xl">Cargando...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-8">
+      <div className="max-w-md mx-auto px-4 space-y-6">
+        <Card className="bg-white/95">
+          <CardHeader>
+            <CardTitle className="text-center text-retro-teal">
+              Mejor Disfraz
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-retro-brown text-center text-lg">
+              ¡Dale, parcero! Elige a los{" "}
+              <span className="font-bold text-retro-orange">3 más bacanos</span>{" "}
+              con sus disfraces. No importa el orden, solo elige a los que más
+              te cuadraron.
+            </p>
+            <p className="text-sm text-retro-brown/70 text-center">
+              Seleccionados: {selectedGuests.size}/3
+            </p>
+            <div className="space-y-2 max-h-[60vh] overflow-y-auto">
+              {allGuests.map((guest) => {
+                const isSelected = selectedGuests.has(guest.id);
+                return (
+                  <label
+                    key={guest.id}
+                    className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                      isSelected
+                        ? "border-retro-orange bg-retro-orange/20 shadow-lg"
+                        : selectedGuests.size >= 3
+                        ? "border-retro-brown/20 opacity-50 cursor-not-allowed"
+                        : "border-retro-brown/30 hover:border-retro-pink"
+                    }`}
+                  >
+                    <Checkbox
+                      checked={isSelected}
+                      onChange={() => handleToggle(guest.id)}
+                      disabled={!isSelected && selectedGuests.size >= 3}
+                      className="mr-3"
+                    />
+                    <span className="text-retro-brown font-medium text-lg">
+                      {guest.name}
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Button
+          onClick={handleContinue}
+          disabled={selectedGuests.size !== 3}
+          size="lg"
+          className="w-full"
+        >
+          Continuar
+        </Button>
+      </div>
+    </div>
+  );
+}
+

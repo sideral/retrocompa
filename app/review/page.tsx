@@ -1,0 +1,125 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { submitVote } from "@/app/actions/votes";
+import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+export default function Review() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const guestId = searchParams.get("guestId");
+  const costumeVotes = searchParams.get("costumeVotes")?.split(",") || [];
+  const karaokeVote = searchParams.get("karaokeVote");
+  const [costumeNames, setCostumeNames] = useState<string[]>([]);
+  const [karaokeName, setKaraokeName] = useState<string>("");
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!guestId || costumeVotes.length !== 3 || !karaokeVote) {
+      router.push("/select-guest");
+      return;
+    }
+
+    async function loadNames() {
+      const supabase = createClient();
+
+      // Get costume vote names
+      const { data: costumeGuests } = await supabase
+        .from("guests")
+        .select("name")
+        .in("id", costumeVotes);
+
+      if (costumeGuests) {
+        setCostumeNames(costumeGuests.map((g) => g.name));
+      }
+
+      // Get karaoke family name
+      const { data: karaokeFamily } = await supabase
+        .from("families")
+        .select("name")
+        .eq("id", karaokeVote)
+        .single();
+
+      if (karaokeFamily) {
+        setKaraokeName(karaokeFamily.name);
+      }
+    }
+    loadNames();
+  }, [guestId, costumeVotes, karaokeVote, router]);
+
+  const handleSubmit = async () => {
+    if (!guestId || costumeVotes.length !== 3 || !karaokeVote) return;
+
+    setSubmitting(true);
+    const result = await submitVote(
+      guestId,
+      [costumeVotes[0], costumeVotes[1], costumeVotes[2]],
+      karaokeVote
+    );
+
+    if (result.error) {
+      alert(result.error);
+      setSubmitting(false);
+    } else {
+      router.push("/confirmation");
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-8">
+      <div className="max-w-md mx-auto px-4 space-y-6">
+        <Card className="bg-white/95">
+          <CardHeader>
+            <CardTitle className="text-center text-retro-teal">
+              Revisa tus votos
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-3">
+              <h3 className="font-bold text-retro-orange text-xl">
+                Tus 3 votos para mejor disfraz:
+              </h3>
+              <ul className="space-y-2 pl-4">
+                {costumeNames.map((name, idx) => (
+                  <li
+                    key={idx}
+                    className="text-retro-brown text-lg flex items-center"
+                  >
+                    <span className="mr-2 text-retro-orange">•</span>
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-3 border-t-2 border-retro-brown/20 pt-4">
+              <h3 className="font-bold text-retro-pink text-xl">
+                Tu voto para mejor karaoke:
+              </h3>
+              <p className="text-retro-brown text-lg pl-4">
+                <span className="mr-2 text-retro-pink">•</span>
+                {karaokeName}
+              </p>
+            </div>
+
+            <p className="text-center text-retro-brown/70 text-sm mt-6">
+              ¿Todo bien? Dale a confirmar para enviar tus votos.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Button
+          onClick={handleSubmit}
+          disabled={submitting}
+          size="lg"
+          className="w-full"
+        >
+          {submitting ? "Enviando..." : "Confirmar y enviar"}
+        </Button>
+      </div>
+    </div>
+  );
+}
+
