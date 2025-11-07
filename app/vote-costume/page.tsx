@@ -87,66 +87,9 @@ function VoteCostumeContent() {
   }, {} as Record<string, Guest[]>);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-24">
-      <div className="max-w-md mx-auto px-4 space-y-6">
-        <Card className="bg-white/95">
-          <CardHeader>
-            <CardTitle className="text-center text-retro-teal">
-              Mejor Disfraz
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-retro-brown text-center text-lg">
-              Elige a los{" "}
-              <span className="font-bold text-retro-orange">3 más bacanos</span>{" "}
-              con sus disfraces. No importa el orden, solo elige a los que más
-              te cuadraron.
-            </p>
-            <p className="text-sm text-retro-brown/70 text-center">
-              Seleccionados: {selectedGuests.size}/3
-            </p>
-            <div className="space-y-4 max-h-[60vh] overflow-y-auto">
-              {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
-                <div key={familyName} className="space-y-2">
-                  <h3 className="font-bold text-retro-brown text-lg border-b-2 border-retro-teal pb-1">
-                    {familyName}
-                  </h3>
-                  <div className="space-y-2 pl-4">
-                    {familyGuests.map((guest) => {
-                      const isSelected = selectedGuests.has(guest.id);
-                      return (
-                        <label
-                          key={guest.id}
-                          className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                            isSelected
-                              ? "border-retro-orange bg-retro-orange/20 shadow-lg"
-                              : selectedGuests.size >= 3
-                              ? "border-retro-brown/20 opacity-50 cursor-not-allowed"
-                              : "border-retro-brown/30 hover:border-retro-pink"
-                          }`}
-                        >
-                          <Checkbox
-                            checked={isSelected}
-                            onChange={() => handleToggle(guest.id)}
-                            disabled={!isSelected && selectedGuests.size >= 3}
-                            className="mr-3"
-                          />
-                          <span className="text-retro-brown font-medium text-lg">
-                            {guest.name}
-                          </span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-      
-      <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
-        <div className="max-w-md mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20">
+      <div className="fixed top-16 left-0 right-0 bg-retro-gold border-b-4 border-retro-brown shadow-lg z-40">
+        <div className="max-w-md mx-auto px-4 py-3">
           <Button
             onClick={handleContinue}
             disabled={selectedGuests.size !== 3}
@@ -155,6 +98,70 @@ function VoteCostumeContent() {
           >
             Continuar
           </Button>
+        </div>
+      </div>
+      
+      <div className="pt-32 pb-8">
+        <div className="max-w-md mx-auto px-4 space-y-6">
+          <Card className="bg-white/95">
+            <CardHeader>
+              <CardTitle className="text-center text-retro-teal">
+                Mejor Disfraz
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="text-center space-y-2">
+                <p className="text-retro-brown text-xl font-semibold">
+                  Elige a los{" "}
+                  <span className="font-bold text-retro-orange text-3xl">3</span>{" "}
+                  <span className="font-bold text-retro-orange text-2xl">más bacanos</span>
+                </p>
+                <p className="text-retro-brown text-lg">
+                  con sus disfraces. No importa el orden, solo elige a los que más
+                  te cuadraron.
+                </p>
+              </div>
+              <p className="text-lg text-retro-brown font-semibold text-center bg-retro-orange/10 py-2 rounded-lg">
+                Seleccionados: {selectedGuests.size}/3
+              </p>
+              <div className="space-y-4 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
+                {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
+                  <div key={familyName} className="space-y-2">
+                    <h3 className="font-bold text-retro-brown text-lg border-b-2 border-retro-teal pb-1">
+                      {familyName}
+                    </h3>
+                    <div className="space-y-2 pl-4">
+                      {familyGuests.map((guest) => {
+                        const isSelected = selectedGuests.has(guest.id);
+                        return (
+                          <label
+                            key={guest.id}
+                            className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                              isSelected
+                                ? "border-retro-orange bg-retro-orange/20 shadow-lg"
+                                : selectedGuests.size >= 3
+                                ? "border-retro-brown/20 opacity-50 cursor-not-allowed"
+                                : "border-retro-brown/30 hover:border-retro-pink"
+                            }`}
+                          >
+                            <Checkbox
+                              checked={isSelected}
+                              onChange={() => handleToggle(guest.id)}
+                              disabled={!isSelected && selectedGuests.size >= 3}
+                              className="mr-3"
+                            />
+                            <span className="text-retro-brown font-medium text-lg">
+                              {guest.name}
+                            </span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

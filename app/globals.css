@@ -17,3 +17,47 @@
   }
 }
 
+@layer utilities {
+  /* Custom scrollbar styling */
+  .scrollable-area {
+    scrollbar-width: thick;
+    scrollbar-color: rgb(251 146 60) rgb(229 231 235);
+  }
+  
+  .scrollable-area::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .scrollable-area::-webkit-scrollbar-track {
+    background: rgb(229 231 235);
+    border-radius: 6px;
+  }
+  
+  .scrollable-area::-webkit-scrollbar-thumb {
+    background: rgb(251 146 60);
+    border-radius: 6px;
+    border: 2px solid rgb(229 231 235);
+  }
+  
+  .scrollable-area::-webkit-scrollbar-thumb:hover {
+    background: rgb(249 115 22);
+  }
+  
+  /* Gradient fade effect for scrollable content */
+  .scrollable-with-fade {
+    position: relative;
+  }
+  
+  .scrollable-with-fade::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8));
+    pointer-events: none;
+    z-index: 10;
+  }
+}
+

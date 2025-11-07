@@ -75,51 +75,9 @@ function ReviewContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-24">
-      <div className="max-w-md mx-auto px-4 space-y-6">
-        <Card className="bg-white/95">
-          <CardHeader>
-            <CardTitle className="text-center text-retro-teal">
-              Revisa tus votos
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-3">
-              <h3 className="font-bold text-retro-orange text-xl">
-                Tus 3 votos para mejor disfraz:
-              </h3>
-              <ul className="space-y-2 pl-4">
-                {costumeNames.map((name, idx) => (
-                  <li
-                    key={idx}
-                    className="text-retro-brown text-lg flex items-center"
-                  >
-                    <span className="mr-2 text-retro-orange">•</span>
-                    {name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-3 border-t-2 border-retro-brown/20 pt-4">
-              <h3 className="font-bold text-retro-pink text-xl">
-                Tu voto para mejor karaoke:
-              </h3>
-              <p className="text-retro-brown text-lg pl-4">
-                <span className="mr-2 text-retro-pink">•</span>
-                {karaokeName}
-              </p>
-            </div>
-
-            <p className="text-center text-retro-brown/70 text-sm mt-6">
-              ¿Todo bien? Dale a confirmar para enviar tus votos.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-      
-      <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
-        <div className="max-w-md mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20">
+      <div className="fixed top-16 left-0 right-0 bg-retro-gold border-b-4 border-retro-brown shadow-lg z-40">
+        <div className="max-w-md mx-auto px-4 py-3">
           <Button
             onClick={handleSubmit}
             disabled={submitting}
@@ -128,6 +86,50 @@ function ReviewContent() {
           >
             {submitting ? "Enviando..." : "Confirmar y enviar"}
           </Button>
+        </div>
+      </div>
+      
+      <div className="pt-32 pb-8">
+        <div className="max-w-md mx-auto px-4 space-y-6">
+          <Card className="bg-white/95">
+            <CardHeader>
+              <CardTitle className="text-center text-retro-teal">
+                Revisa tus votos
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-3">
+                <h3 className="font-bold text-retro-orange text-xl">
+                  Tus 3 votos para mejor disfraz:
+                </h3>
+                <ul className="space-y-2 pl-4">
+                  {costumeNames.map((name, idx) => (
+                    <li
+                      key={idx}
+                      className="text-retro-brown text-lg flex items-center"
+                    >
+                      <span className="mr-2 text-retro-orange">•</span>
+                      {name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="space-y-3 border-t-2 border-retro-brown/20 pt-4">
+                <h3 className="font-bold text-retro-pink text-xl">
+                  Tu voto para mejor karaoke:
+                </h3>
+                <p className="text-retro-brown text-lg pl-4">
+                  <span className="mr-2 text-retro-pink">•</span>
+                  {karaokeName}
+                </p>
+              </div>
+
+              <p className="text-center text-retro-brown/70 text-sm mt-6">
+                ¿Todo bien? Dale a confirmar para enviar tus votos.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
