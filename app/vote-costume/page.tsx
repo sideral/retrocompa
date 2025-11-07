@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getAllGuests } from "@/app/actions/votes";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ interface Guest {
   name: string;
 }
 
-export default function VoteCostume() {
+function VoteCostumeContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const guestId = searchParams.get("guestId");
@@ -132,6 +132,20 @@ export default function VoteCostume() {
         </Button>
       </div>
     </div>
+  );
+}
+
+export default function VoteCostume() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-retro-gold pt-20 px-4">
+        <div className="max-w-md mx-auto text-center py-20">
+          <p className="text-retro-brown text-xl">Cargando...</p>
+        </div>
+      </div>
+    }>
+      <VoteCostumeContent />
+    </Suspense>
   );
 }
 

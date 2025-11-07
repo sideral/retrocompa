@@ -11,9 +11,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-retro-gold text-retro-brown;
     font-family: system-ui, -apple-system, sans-serif;

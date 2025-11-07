@@ -152,18 +152,20 @@ export async function getVotingResults() {
 
   const votedIds = new Set(votes.map((v) => v.voter_id));
   const guestsWithStatus =
-    allGuests?.map((g) => ({
+    allGuests?.map((g: any) => ({
       id: g.id,
       name: g.name,
-      family: g.families?.name || "",
+      family: (g.families as { name: string } | null)?.name || "",
       hasVoted: votedIds.has(g.id),
     })) || [];
 
   return {
-    totalVotes: votes.length,
-    costumeWinners,
-    karaokeWinner,
-    guestsWithStatus,
+    results: {
+      totalVotes: votes.length,
+      costumeWinners,
+      karaokeWinner,
+      guestsWithStatus,
+    },
   };
 }
 

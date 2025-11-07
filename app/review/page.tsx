@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { submitVote } from "@/app/actions/votes";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-export default function Review() {
+
+function ReviewContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const guestId = searchParams.get("guestId");
@@ -120,6 +121,20 @@ export default function Review() {
         </Button>
       </div>
     </div>
+  );
+}
+
+export default function Review() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-retro-gold pt-20 px-4">
+        <div className="max-w-md mx-auto text-center py-20">
+          <p className="text-retro-brown text-xl">Cargando...</p>
+        </div>
+      </div>
+    }>
+      <ReviewContent />
+    </Suspense>
   );
 }
 

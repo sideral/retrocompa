@@ -23,7 +23,7 @@ export default function Winners() {
   useEffect(() => {
     async function loadResults() {
       const result = await getVotingResults();
-      if (result.results) {
+      if (result && "results" in result && result.results) {
         setResults(result.results as Results);
       }
       setLoading(false);
