@@ -57,7 +57,7 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-retro-gold border-b-4 border-retro-brown shadow-lg">
       <div className="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
         <Link href={getBackUrl()}>
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="default" className="text-lg font-semibold">
             ← Atrás
           </Button>
         </Link>

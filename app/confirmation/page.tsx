@@ -53,7 +53,7 @@ export default function Confirmation() {
           <CardContent className="space-y-6 text-center">
             <p className="text-retro-brown text-xl leading-relaxed">
               ¡Tus votos han sido enviados! Ya hiciste tu parte para elegir a
-              los más bacanos de la fiesta.
+              los más chéveres de la fiesta.
             </p>
             <p className="text-retro-brown text-lg leading-relaxed">
               Ahora sí, a disfrutar de la fiesta y a ver quién se lleva los

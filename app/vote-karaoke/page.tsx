@@ -77,35 +77,21 @@ function VoteKaraokeContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20">
-      <div className="fixed top-16 left-0 right-0 bg-retro-gold border-b-4 border-retro-brown shadow-lg z-40">
-        <div className="max-w-md mx-auto px-4 py-3">
-          <Button
-            onClick={handleContinue}
-            disabled={!selectedFamily}
-            size="lg"
-            className={`w-full ${selectedFamily ? 'button-active-pulse' : ''}`}
-          >
-            Continuar
-          </Button>
-        </div>
-      </div>
-      
-      <div className="pt-32 pb-8">
-        <div className="max-w-md mx-auto px-4 space-y-6">
-          <Card className="bg-white/95">
-            <CardHeader>
-              <CardTitle className="text-center text-retro-pink">
-                Mejor Karaoke
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-retro-brown text-center text-lg">
-                Elige a la{" "}
-                <span className="font-bold text-retro-pink">familia que más se lució</span>{" "}
-                en el karaoke. Solo puedes elegir una, así que piénsalo bien.
-              </p>
-              <div className="space-y-2 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
+    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-24">
+      <div className="max-w-md mx-auto px-4 space-y-6">
+        <Card className="bg-white/95">
+          <CardHeader>
+            <CardTitle className="text-center text-retro-pink">
+              Mejor Karaoke
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-retro-brown text-center text-lg">
+              Elige a la{" "}
+              <span className="font-bold text-retro-pink">familia que más se lució</span>{" "}
+              en el karaoke. Solo puedes elegir una, así que piénsalo bien.
+            </p>
+            <div className="space-y-2 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
                 {families.map((family) => {
                   const isSelected = selectedFamily === family.id;
                   return (
@@ -131,9 +117,21 @@ function VoteKaraokeContent() {
                     </label>
                   );
                 })}
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
+        <div className="max-w-md mx-auto px-4 py-4">
+          <Button
+            onClick={handleContinue}
+            disabled={!selectedFamily}
+            size="lg"
+            className={`w-full ${selectedFamily ? 'button-active-pulse' : ''}`}
+          >
+            Continuar
+          </Button>
         </div>
       </div>
     </div>

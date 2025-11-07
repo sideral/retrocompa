@@ -26,7 +26,7 @@ export default function Home() {
           <CardContent className="space-y-4 text-retro-brown">
             <p className="text-lg leading-relaxed">
               ¡Qué tal, mi gente! Llegó el momento de ponerle sabor a esta
-              fiesta retro. Estamos aquí para elegir a los más bacanos del
+              fiesta retro. Estamos aquí para elegir a los más chéveres del
               evento.
             </p>
             <p className="text-lg leading-relaxed">
