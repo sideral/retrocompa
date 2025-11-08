@@ -166,17 +166,24 @@ export async function getVotingResults() {
   // Get all guests with vote status
   const { data: allGuests } = await supabase
     .from("guests")
-    .select("id, name, families(name)")
+    .select("id, name, family_id, families(name, id)")
     .order("name");
 
   const votedIds = new Set(votes.map((v) => v.voter_id));
   const guestsWithStatus =
-    allGuests?.map((g: any) => ({
-      id: g.id,
-      name: g.name,
-      family: (g.families as { name: string } | null)?.name || "",
-      hasVoted: votedIds.has(g.id),
-    })) || [];
+    allGuests?.map((g: any) => {
+      const family = g.families as { name: string; id: string } | null;
+      const familyId = family?.id || g.family_id;
+      return {
+        id: g.id,
+        name: g.name,
+        family: family?.name || "",
+        familyId: familyId,
+        hasVoted: votedIds.has(g.id),
+        costumeVoteCount: costumeCounts[g.id] || 0,
+        familyVoteCount: familyId ? (karaokeCounts[familyId] || 0) : 0,
+      };
+    }) || [];
 
   return {
     results: {

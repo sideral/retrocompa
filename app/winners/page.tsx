@@ -13,6 +13,8 @@ interface Results {
     name: string;
     family: string;
     hasVoted: boolean;
+    costumeVoteCount: number;
+    familyVoteCount: number;
   }>;
 }
 
@@ -113,7 +115,7 @@ export default function Winners() {
           <Card className="bg-white/95">
             <CardHeader className="mb-4">
               <CardTitle className="text-retro-orange text-center text-4xl font-bold">
-                Mejor Pinta (Top 2) 👗
+                Mejores 2 Pintas 👗
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -183,15 +185,23 @@ export default function Winners() {
                         className="flex items-center justify-between"
                       >
                         <span className="text-retro-brown">{guest.name}</span>
-                        <span
-                          className={`text-2xl ${
-                            guest.hasVoted
-                              ? "text-retro-orange"
-                              : "text-retro-brown/30"
-                          }`}
-                        >
-                          {guest.hasVoted ? "✓" : "✗"}
-                        </span>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-retro-brown/70">
+                            👗 {guest.costumeVoteCount}
+                          </span>
+                          <span className="text-sm text-retro-brown/70">
+                            🎤 {guest.familyVoteCount}
+                          </span>
+                          <span
+                            className={`text-2xl ${
+                              guest.hasVoted
+                                ? "text-retro-orange"
+                                : "text-retro-brown/30"
+                            }`}
+                          >
+                            {guest.hasVoted ? "✓" : "✗"}
+                          </span>
+                        </div>
                       </div>
                     ))}
                   </div>
