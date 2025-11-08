@@ -32,7 +32,7 @@ export default function Home() {
             <p className="text-lg leading-relaxed">
               Tienes que votar por los{" "}
               <span className="font-bold text-retro-orange">
-                3 mejores disfraces
+                3 mejores pintas
               </span>{" "}
               y por la{" "}
               <span className="font-bold text-retro-pink">

@@ -1,6 +1,6 @@
 # RetroCompa 2025 - Sistema de Votaciones
 
-Sistema de votación para la fiesta RetroCompa 2025. Permite a los invitados votar por el mejor disfraz y el mejor karaoke.
+Sistema de votación para la fiesta RetroCompa 2025. Permite a los invitados votar por la mejor pinta y el mejor karaoke.
 
 ## Stack Tecnológico
 
@@ -81,7 +81,7 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
 - `/` - Página de inicio
 - `/select-guest` - Selección de invitado
-- `/vote-costume` - Votación de mejor disfraz (3 votos)
+- `/vote-costume` - Votación de mejor pinta (3 votos)
 - `/vote-karaoke` - Votación de mejor karaoke (1 voto)
 - `/review` - Revisión y confirmación de votos
 - `/confirmation` - Página de confirmación

@@ -86,7 +86,7 @@ function ReviewContent() {
           <CardContent className="space-y-6">
             <div className="space-y-3">
               <h3 className="font-bold text-retro-orange text-xl">
-                Tus 3 votos para mejor disfraz:
+                Tus 3 votos para mejor pinta:
               </h3>
               <ul className="space-y-2 pl-4">
                 {costumeNames.map((name, idx) => (

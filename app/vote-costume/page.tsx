@@ -90,10 +90,18 @@ function VoteCostumeContent() {
     <div className="min-h-screen bg-sunburst pt-20 pb-24">
       <div className="max-w-md mx-auto px-4 space-y-6">
         <Card className="bg-white/95">
-          <CardHeader>
-            <CardTitle className="text-center text-retro-teal">
-              Mejor Disfraz
+          <CardHeader className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 pb-4">
+            <CardTitle className="text-center text-retro-teal text-4xl font-bold">
+              Mejor Pinta
             </CardTitle>
+            <div className="text-center mt-4">
+              <div className="text-5xl font-bold text-retro-orange leading-none">
+                {selectedGuests.size}/3
+              </div>
+              <p className="text-retro-brown text-lg mt-2 font-semibold">
+                Seleccionados
+              </p>
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="text-center space-y-2">
@@ -102,14 +110,11 @@ function VoteCostumeContent() {
                 <span className="font-bold text-retro-orange text-3xl">3</span>{" "}
                 <span className="font-bold text-retro-orange text-2xl">más chéveres</span>
               </p>
-              <p className="text-retro-brown text-lg">
-                con sus disfraces. No importa el orden, solo elige a los que más
+              <p className="text-retro-brown text-sm">
+                con sus pintas. No importa el orden, solo elige a los que más
                 te cuadraron.
               </p>
             </div>
-            <p className="text-lg text-retro-brown font-semibold text-center bg-retro-orange/10 py-2 rounded-lg">
-              Seleccionados: {selectedGuests.size}/3
-            </p>
             <div className="space-y-4 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
                 {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
                   <div key={familyName} className="space-y-2">

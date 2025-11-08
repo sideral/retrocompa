@@ -84,7 +84,7 @@ export default function Winners() {
         <div className="grid gap-4 md:grid-cols-2">
           <Card className="bg-white/95">
             <CardHeader>
-              <CardTitle className="text-retro-pink text-center">
+              <CardTitle className="text-retro-pink text-center text-4xl font-bold">
                 Mejor Karaoke
               </CardTitle>
             </CardHeader>
@@ -112,8 +112,8 @@ export default function Winners() {
 
           <Card className="bg-white/95">
             <CardHeader>
-              <CardTitle className="text-retro-orange text-center">
-                Mejor Disfraz (Top 2)
+              <CardTitle className="text-retro-orange text-center text-4xl font-bold">
+                Mejor Pinta (Top 2)
               </CardTitle>
             </CardHeader>
             <CardContent>

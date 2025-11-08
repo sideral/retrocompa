@@ -5,7 +5,7 @@ import { Navigation } from "@/components/navigation";
 
 export const metadata: Metadata = {
   title: "RetroCompa 2025 - Votaciones",
-  description: "Vota por el mejor disfraz y karaoke en RetroCompa 2025",
+  description: "Vota por la mejor pinta y karaoke en RetroCompa 2025",
 };
 
 export default function RootLayout({

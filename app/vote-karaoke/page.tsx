@@ -83,7 +83,7 @@ function VoteKaraokeContent() {
       <div className="max-w-md mx-auto px-4 space-y-6">
         <Card className="bg-white/95">
           <CardHeader>
-            <CardTitle className="text-center text-retro-pink">
+            <CardTitle className="text-center text-retro-pink text-4xl font-bold">
               Mejor Karaoke
             </CardTitle>
           </CardHeader>
