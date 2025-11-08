@@ -168,7 +168,7 @@ export default function Winners() {
         <Card className="bg-white/95">
           <CardHeader className="mb-4">
             <CardTitle className="text-retro-teal text-center">
-              Estado de Votaciones
+              Estado de votaciones
             </CardTitle>
           </CardHeader>
           <CardContent>

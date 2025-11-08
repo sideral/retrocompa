@@ -94,7 +94,7 @@ function VoteKaraokeContent() {
                 <span className="font-bold text-retro-pink">
                   familia que más se lució
                 </span>{" "}
-                en el karaoke. Solo puedes elegir una, así que piénsalo bien. 🤔
+                en el karaoke. Solo puedes elegir una, ¡piénsalo bien! 🤔
               </p>
               <p className="text-retro-brown/80 text-center text-sm -mt-2">
                 (No puedes votar por tu familia, ¡sé justo! ⚖️)

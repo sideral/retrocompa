@@ -109,7 +109,7 @@ function VoteCostumeContent() {
                 <span className="font-bold text-retro-orange text-xl">
                   pintas más chéveres
                 </span>
-                , no importa el orden. 🎨
+                ; el orden no importa.
               </p>
               <p className="text-retro-brown/80 text-center text-sm">
                 (No puedes votar por ti, ¡lo siento! 😅)
@@ -143,7 +143,9 @@ function VoteCostumeContent() {
                               <Checkbox
                                 checked={isSelected}
                                 onChange={() => handleToggle(guest.id)}
-                                disabled={!isSelected && selectedGuests.size >= 3}
+                                disabled={
+                                  !isSelected && selectedGuests.size >= 3
+                                }
                                 className="mr-3"
                               />
                               <span className="text-retro-brown font-medium text-lg">

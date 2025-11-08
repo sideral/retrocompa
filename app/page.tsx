@@ -12,7 +12,7 @@ export default function Home() {
               src="/assets/logoretro.png"
               alt="RetroCompa 2025"
               className="max-w-full h-auto drop-shadow-lg"
-              style={{ maxHeight: '300px' }}
+              style={{ maxHeight: "300px" }}
             />
           </div>
         </div>
@@ -20,12 +20,12 @@ export default function Home() {
         <Card className="bg-white/95 backdrop-blur-sm">
           <CardHeader className="mb-4">
             <CardTitle className="text-center text-retro-teal">
-              ¡Bienvenido a RetroCompa 2025!
+              ¡Bienvenid@ a RetroCompa 2025!
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-retro-brown">
             <p className="text-lg leading-relaxed">
-              ¡Llegó el momento de elegir a los ganadores de esta fiesta retro! 🎊
+              ¡Llegó la hora de elegir a los ganadores de la fiesta! 🎊
             </p>
             <p className="text-lg leading-relaxed">
               Vota por las{" "}
@@ -34,7 +34,7 @@ export default function Home() {
               </span>{" "}
               y por la{" "}
               <span className="font-bold text-retro-pink">
-                mejor presentación de karaoke en familia 🎤
+                mejor presentación familiar de karaoke 🎤
               </span>
               .
             </p>
@@ -43,11 +43,10 @@ export default function Home() {
 
         <Link href="/select-guest" className="block">
           <Button size="lg" className="w-full text-xl py-6 shadow-2xl">
-            ¡Empezar a Votar! 🎉
+            ¡Empezar a votar! 🎉
           </Button>
         </Link>
       </div>
     </div>
   );
 }
-

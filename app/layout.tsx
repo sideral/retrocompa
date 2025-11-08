@@ -11,7 +11,7 @@ const quicksand = Quicksand({
 
 export const metadata: Metadata = {
   title: "RetroCompa 2025 - Votaciones",
-  description: "Vota por la mejor pinta y karaoke en RetroCompa 2025",
+  description: "Vota por la mejor pinta y el mejor karaoke en RetroCompa 2025",
 };
 
 export default function RootLayout({
@@ -30,4 +30,3 @@ export default function RootLayout({
     </html>
   );
 }
-

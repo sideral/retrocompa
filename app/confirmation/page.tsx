@@ -17,7 +17,7 @@ export default function Confirmation() {
       return Math.random() * (max - min) + min;
     }
 
-    const interval = setInterval(function() {
+    const interval = setInterval(function () {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
@@ -25,16 +25,16 @@ export default function Confirmation() {
       }
 
       const particleCount = 50 * (timeLeft / duration);
-      
+
       confetti({
         ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
       });
       confetti({
         ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
       });
     }, 250);
 
@@ -52,12 +52,12 @@ export default function Confirmation() {
           </CardHeader>
           <CardContent className="space-y-6 text-center">
             <p className="text-retro-brown text-xl leading-relaxed">
-              ¡Tus votos han sido enviados! Ya hiciste tu parte para elegir a
-              los más chéveres de la fiesta. 🎯
+              ¡Tus votos se enviaron! Ya hiciste tu parte para elegir a los más
+              chéveres de la fiesta. 🎯
             </p>
             <p className="text-retro-brown text-lg leading-relaxed">
-              Ahora sí, sigue disfrutando de la fiesta y a ver quién se lleva los
-              premios. ¡Que la pases de lo mejor! 🎉
+              Ahora sí, sigue disfrutando de la fiesta y a ver quién se lleva
+              los premios. ¡Que la pases de lo mejor! 🎉
             </p>
             <div className="pt-4">
               <Link href="/">
@@ -72,4 +72,3 @@ export default function Confirmation() {
     </div>
   );
 }
-

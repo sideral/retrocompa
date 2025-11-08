@@ -90,7 +90,7 @@ function ReviewContent() {
           <CardContent className="space-y-6">
             <div className="space-y-3">
               <h3 className="font-bold text-retro-orange text-xl">
-                Tus 3 votos para mejor pinta: 👗
+                Tus 3 votos para la Mejor Pinta: 👗
               </h3>
               <ul className="space-y-2 pl-4">
                 {costumeNames.map((name, idx) => (
@@ -107,7 +107,7 @@ function ReviewContent() {
 
             <div className="space-y-3 border-t-2 border-retro-brown/20 pt-4">
               <h3 className="font-bold text-retro-pink text-xl">
-                Tu voto para mejor karaoke: 🎤
+                Tu voto para el Mejor Karaoke: 🎤
               </h3>
               <p className="text-retro-brown text-lg pl-4">
                 <span className="mr-2 text-retro-pink">•</span>
@@ -116,13 +116,13 @@ function ReviewContent() {
             </div>
 
             <p className="text-center text-retro-brown text-base font-semibold pt-4">
-              ¿Quieres cambiar algo? Usa el botón &quot;Atrás&quot;. Si todo está bien,
-              ¡confirma tu voto! ✨
+              ¿Quieres cambiar algo? Usa el botón &quot;Atrás&quot;. Si todo
+              está bien, ¡confirma y envía tu voto! ✨
             </p>
           </CardContent>
         </Card>
       </div>
-      
+
       <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
         <div className="max-w-md mx-auto px-4 py-4">
           <div className="flex items-center space-x-4">
@@ -152,15 +152,16 @@ function ReviewContent() {
 
 export default function Review() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-retro-gold pt-20 px-4">
-        <div className="max-w-md mx-auto text-center py-20">
-          <p className="text-retro-brown text-xl">Cargando...</p>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-retro-gold pt-20 px-4">
+          <div className="max-w-md mx-auto text-center py-20">
+            <p className="text-retro-brown text-xl">Cargando...</p>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <ReviewContent />
     </Suspense>
   );
 }
-
