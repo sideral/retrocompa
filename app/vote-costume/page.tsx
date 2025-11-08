@@ -97,7 +97,7 @@ function VoteCostumeContent() {
             <div className="text-center space-y-2 flex-shrink-0 mb-4 px-6">
               <p className="text-retro-brown text-lg font-semibold">
                 Elige las{" "}
-                <span className="font-bold text-retro-orange text-2xl">3</span>{" "}
+                <span className="font-bold text-retro-orange text-4xl">3</span>{" "}
                 <span className="font-bold text-retro-orange text-xl">
                   pintas más chéveres
                 </span>
