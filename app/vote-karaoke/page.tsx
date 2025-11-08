@@ -107,10 +107,11 @@ function VoteKaraokeContent() {
                   return (
                     <div
                       key={family.id}
+                      onClick={() => setSelectedFamily(family.id)}
                       className={`border-2 rounded-lg p-4 bg-white/50 cursor-pointer transition-all ${
                         isSelected
                           ? "border-retro-pink shadow-lg"
-                          : "border-retro-teal/40 hover:border-retro-pink"
+                          : "border-retro-teal/40"
                       }`}
                     >
                       <label className="flex items-center cursor-pointer">
@@ -120,7 +121,7 @@ function VoteKaraokeContent() {
                           value={family.id}
                           checked={isSelected}
                           onChange={(e) => setSelectedFamily(e.target.value)}
-                          className="mr-3 h-5 w-5 text-retro-pink"
+                          className="mr-3 h-5 w-5 text-retro-pink pointer-events-none"
                         />
                         <span
                           className={`text-retro-brown font-medium text-lg ${

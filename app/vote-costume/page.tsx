@@ -129,24 +129,27 @@ function VoteCostumeContent() {
                       <div className="space-y-2 pl-2">
                         {familyGuests.map((guest) => {
                           const isSelected = selectedGuests.has(guest.id);
+                          const isDisabled =
+                            !isSelected && selectedGuests.size >= 3;
                           return (
                             <label
                               key={guest.id}
-                              className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                              onClick={() =>
+                                !isDisabled && handleToggle(guest.id)
+                              }
+                              className={`flex items-center p-4 rounded-lg border-2 transition-all ${
                                 isSelected
-                                  ? "border-retro-orange bg-retro-orange/20 shadow-lg"
-                                  : selectedGuests.size >= 3
+                                  ? "border-retro-orange bg-retro-orange/20 shadow-lg cursor-pointer"
+                                  : isDisabled
                                   ? "border-retro-brown/20 opacity-50 cursor-not-allowed"
-                                  : "border-retro-brown/30 hover:border-retro-pink"
+                                  : "border-retro-brown/30 cursor-pointer"
                               }`}
                             >
                               <Checkbox
                                 checked={isSelected}
                                 onChange={() => handleToggle(guest.id)}
-                                disabled={
-                                  !isSelected && selectedGuests.size >= 3
-                                }
-                                className="mr-3"
+                                disabled={isDisabled}
+                                className="mr-3 pointer-events-none"
                               />
                               <span className="text-retro-brown font-medium text-lg">
                                 {guest.name}

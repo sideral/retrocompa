@@ -84,10 +84,11 @@ export default function SelectGuest() {
                         {familyGuests.map((guest) => (
                           <label
                             key={guest.id}
+                            onClick={() => setSelectedGuest(guest.id)}
                             className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
                               selectedGuest === guest.id
                                 ? "border-retro-orange bg-retro-orange/20 shadow-lg"
-                                : "border-retro-brown/30 hover:border-retro-pink"
+                                : "border-retro-brown/30"
                             }`}
                           >
                             <input
@@ -96,7 +97,7 @@ export default function SelectGuest() {
                               value={guest.id}
                               checked={selectedGuest === guest.id}
                               onChange={(e) => setSelectedGuest(e.target.value)}
-                              className="mr-3 h-5 w-5 text-retro-orange"
+                              className="mr-3 h-5 w-5 text-retro-orange pointer-events-none"
                             />
                             <span className="text-retro-brown font-medium">
                               {guest.name}
