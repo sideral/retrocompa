@@ -101,8 +101,8 @@ function VoteCostumeContent() {
               </div>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0 overflow-hidden pr-0">
-            <div className="text-center space-y-2 flex-shrink-0">
+          <CardContent className="flex flex-col flex-1 min-h-0 overflow-y-scroll overflow-x-hidden scrollable-area">
+            <div className="text-center space-y-2 flex-shrink-0 mb-4">
               <p className="text-retro-brown text-lg font-semibold">
                 Elige las{" "}
                 <span className="font-bold text-retro-orange text-2xl">3</span>{" "}
@@ -115,7 +115,7 @@ function VoteCostumeContent() {
                 (No puedes votar por ti, ¡lo siento! 😅)
               </p>
             </div>
-            <div className="space-y-6 flex-1 overflow-y-scroll scrollable-area min-h-0 -mx-4 pl-4 pr-0 border-4 border-retro-brown/50 rounded-lg shadow-sm">
+            <div className="space-y-6 flex-1 overflow-y-scroll overflow-x-hidden scrollable-area min-h-0 -mx-4 px-4">
               {Object.entries(groupedGuests).map(
                 ([familyName, familyGuests]) => (
                   <div
