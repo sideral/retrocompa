@@ -95,12 +95,9 @@ function VoteCostumeContent() {
               Mejor Pinta
             </CardTitle>
             <div className="text-center mt-4">
-              <div className="text-5xl font-bold text-retro-orange leading-none">
-                {selectedGuests.size}/3
+              <div className="text-2xl font-bold text-retro-orange">
+                {selectedGuests.size}/3 <span className="text-retro-brown font-semibold">Seleccionados</span>
               </div>
-              <p className="text-retro-brown text-lg mt-2 font-semibold">
-                Seleccionados
-              </p>
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
