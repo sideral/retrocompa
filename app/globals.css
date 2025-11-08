@@ -97,7 +97,7 @@
   .button-active-pulse:not(:disabled) {
     animation: dramatic-pulse 0.6s ease-in-out infinite;
     font-weight: 700 !important;
-    border: 3px solid rgb(59, 130, 246) !important;
+    border: none !important;
   }
 }
 
