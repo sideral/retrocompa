@@ -87,49 +87,53 @@ function VoteKaraokeContent() {
               Mejor Karaoke 🎤
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-col flex-1 min-h-0 overflow-y-scroll overflow-x-hidden scrollable-area">
-            <p className="text-retro-brown text-center text-lg flex-shrink-0 mb-4">
-              Elige a la{" "}
-              <span className="font-bold text-retro-pink">
-                familia que más se lució
-              </span>{" "}
-              en el karaoke. Solo puedes elegir una, así que piénsalo bien. 🤔
-            </p>
-            <p className="text-retro-brown/80 text-center text-sm -mt-2 flex-shrink-0 mb-4">
-              (No puedes votar por tu familia, ¡sé justo! ⚖️)
-            </p>
-            <div className="space-y-2 flex-1 overflow-y-scroll overflow-x-hidden scrollable-area min-h-0 -mx-4 px-4">
-              {families.map((family) => {
-                const isSelected = selectedFamily === family.id;
-                return (
-                  <div
-                    key={family.id}
-                    className={`border-2 rounded-lg p-4 bg-white/50 cursor-pointer transition-all ${
-                      isSelected
-                        ? "border-retro-pink shadow-lg"
-                        : "border-retro-teal/40 hover:border-retro-pink"
-                    }`}
-                  >
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="family"
-                        value={family.id}
-                        checked={isSelected}
-                        onChange={(e) => setSelectedFamily(e.target.value)}
-                        className="mr-3 h-5 w-5 text-retro-pink"
-                      />
-                      <span
-                        className={`text-retro-brown font-medium text-lg ${
-                          isSelected ? "font-bold" : ""
-                        }`}
-                      >
-                        {family.name}
-                      </span>
-                    </label>
-                  </div>
-                );
-              })}
+          <CardContent className="flex flex-col flex-1 min-h-0 overflow-hidden">
+            <div className="flex-shrink-0 mb-4 px-6">
+              <p className="text-retro-brown text-center text-lg">
+                Elige a la{" "}
+                <span className="font-bold text-retro-pink">
+                  familia que más se lució
+                </span>{" "}
+                en el karaoke. Solo puedes elegir una, así que piénsalo bien. 🤔
+              </p>
+              <p className="text-retro-brown/80 text-center text-sm -mt-2">
+                (No puedes votar por tu familia, ¡sé justo! ⚖️)
+              </p>
+            </div>
+            <div className="flex-1 overflow-y-scroll scrollable-area min-h-0 px-2">
+              <div className="space-y-2 px-4">
+                {families.map((family) => {
+                  const isSelected = selectedFamily === family.id;
+                  return (
+                    <div
+                      key={family.id}
+                      className={`border-2 rounded-lg p-4 bg-white/50 cursor-pointer transition-all ${
+                        isSelected
+                          ? "border-retro-pink shadow-lg"
+                          : "border-retro-teal/40 hover:border-retro-pink"
+                      }`}
+                    >
+                      <label className="flex items-center cursor-pointer">
+                        <input
+                          type="radio"
+                          name="family"
+                          value={family.id}
+                          checked={isSelected}
+                          onChange={(e) => setSelectedFamily(e.target.value)}
+                          className="mr-3 h-5 w-5 text-retro-pink"
+                        />
+                        <span
+                          className={`text-retro-brown font-medium text-lg ${
+                            isSelected ? "font-bold" : ""
+                          }`}
+                        >
+                          {family.name}
+                        </span>
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </CardContent>
         </Card>

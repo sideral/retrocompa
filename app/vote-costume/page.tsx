@@ -101,8 +101,8 @@ function VoteCostumeContent() {
               </div>
             </div>
           </CardHeader>
-          <CardContent className="flex flex-col flex-1 min-h-0 overflow-y-scroll overflow-x-hidden scrollable-area">
-            <div className="text-center space-y-2 flex-shrink-0 mb-4">
+          <CardContent className="flex flex-col flex-1 min-h-0 overflow-hidden">
+            <div className="text-center space-y-2 flex-shrink-0 mb-4 px-6">
               <p className="text-retro-brown text-lg font-semibold">
                 Elige las{" "}
                 <span className="font-bold text-retro-orange text-2xl">3</span>{" "}
@@ -115,46 +115,48 @@ function VoteCostumeContent() {
                 (No puedes votar por ti, ¡lo siento! 😅)
               </p>
             </div>
-            <div className="space-y-6 flex-1 overflow-y-scroll overflow-x-hidden scrollable-area min-h-0 -mx-4 px-4">
-              {Object.entries(groupedGuests).map(
-                ([familyName, familyGuests]) => (
-                  <div
-                    key={familyName}
-                    className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50"
-                  >
-                    <h3 className="font-bold text-retro-brown text-xl text-center">
-                      {familyName}
-                    </h3>
-                    <div className="space-y-2 pl-2">
-                      {familyGuests.map((guest) => {
-                        const isSelected = selectedGuests.has(guest.id);
-                        return (
-                          <label
-                            key={guest.id}
-                            className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                              isSelected
-                                ? "border-retro-orange bg-retro-orange/20 shadow-lg"
-                                : selectedGuests.size >= 3
-                                ? "border-retro-brown/20 opacity-50 cursor-not-allowed"
-                                : "border-retro-brown/30 hover:border-retro-pink"
-                            }`}
-                          >
-                            <Checkbox
-                              checked={isSelected}
-                              onChange={() => handleToggle(guest.id)}
-                              disabled={!isSelected && selectedGuests.size >= 3}
-                              className="mr-3"
-                            />
-                            <span className="text-retro-brown font-medium text-lg">
-                              {guest.name}
-                            </span>
-                          </label>
-                        );
-                      })}
+            <div className="flex-1 overflow-y-scroll scrollable-area min-h-0 px-2">
+              <div className="space-y-6 px-4">
+                {Object.entries(groupedGuests).map(
+                  ([familyName, familyGuests]) => (
+                    <div
+                      key={familyName}
+                      className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50"
+                    >
+                      <h3 className="font-bold text-retro-brown text-xl text-center">
+                        {familyName}
+                      </h3>
+                      <div className="space-y-2 pl-2">
+                        {familyGuests.map((guest) => {
+                          const isSelected = selectedGuests.has(guest.id);
+                          return (
+                            <label
+                              key={guest.id}
+                              className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                                isSelected
+                                  ? "border-retro-orange bg-retro-orange/20 shadow-lg"
+                                  : selectedGuests.size >= 3
+                                  ? "border-retro-brown/20 opacity-50 cursor-not-allowed"
+                                  : "border-retro-brown/30 hover:border-retro-pink"
+                              }`}
+                            >
+                              <Checkbox
+                                checked={isSelected}
+                                onChange={() => handleToggle(guest.id)}
+                                disabled={!isSelected && selectedGuests.size >= 3}
+                                className="mr-3"
+                              />
+                              <span className="text-retro-brown font-medium text-lg">
+                                {guest.name}
+                              </span>
+                            </label>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                )
-              )}
+                  )
+                )}
+              </div>
             </div>
           </CardContent>
         </Card>
