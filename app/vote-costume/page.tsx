@@ -107,7 +107,7 @@ function VoteCostumeContent() {
                 Elige las{" "}
                 <span className="font-bold text-retro-orange text-2xl">3</span>{" "}
                 <span className="font-bold text-retro-orange text-xl">
-                  pintas más cheveres
+                  pintas más chéveres
                 </span>
                 , no importa el orden. 🎨
               </p>
