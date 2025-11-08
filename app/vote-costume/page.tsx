@@ -87,9 +87,9 @@ function VoteCostumeContent() {
   }, {} as Record<string, Guest[]>);
 
   return (
-    <div className="h-screen bg-sunburst pt-20 pb-24 flex flex-col">
-      <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full">
-        <Card className="bg-white/95 flex flex-col flex-1 min-h-0">
+    <div className="h-[100dvh] bg-sunburst pt-20 pb-24 flex flex-col overflow-hidden">
+      <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full overflow-hidden">
+        <Card className="bg-white/95 flex flex-col flex-1 min-h-0 overflow-hidden">
           <CardHeader className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 pb-4 mb-4 flex-shrink-0">
             <CardTitle className="text-center text-retro-teal text-4xl font-bold">
               Voto Mejor Pinta 👗
@@ -100,7 +100,7 @@ function VoteCostumeContent() {
               </div>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0">
+          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0 overflow-hidden">
             <div className="text-center space-y-2 flex-shrink-0">
               <p className="text-retro-brown text-lg font-semibold">
                 Elige las{" "}
@@ -112,7 +112,7 @@ function VoteCostumeContent() {
                 (No puedes votar por ti, ¡lo siento! 😅)
               </p>
             </div>
-            <div className="space-y-6 flex-1 overflow-y-auto scrollable-area min-h-0">
+            <div className="space-y-6 flex-1 overflow-y-auto scrollable-area min-h-0 -mx-4 px-4">
                 {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
                   <div key={familyName} className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50">
                     <h3 className="font-bold text-retro-brown text-xl text-center">

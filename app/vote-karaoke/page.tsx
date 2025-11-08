@@ -79,15 +79,15 @@ function VoteKaraokeContent() {
   }
 
   return (
-    <div className="h-screen bg-sunburst pt-20 pb-24 flex flex-col">
-      <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full">
-        <Card className="bg-white/95 flex flex-col flex-1 min-h-0">
+    <div className="h-[100dvh] bg-sunburst pt-20 pb-24 flex flex-col overflow-hidden">
+      <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full overflow-hidden">
+        <Card className="bg-white/95 flex flex-col flex-1 min-h-0 overflow-hidden">
           <CardHeader className="flex-shrink-0 mb-4">
             <CardTitle className="text-center text-retro-pink text-4xl font-bold">
               Mejor Karaoke 🎤
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0">
+          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0 overflow-hidden">
             <p className="text-retro-brown text-center text-lg flex-shrink-0">
               Elige a la{" "}
               <span className="font-bold text-retro-pink">
@@ -98,7 +98,7 @@ function VoteKaraokeContent() {
             <p className="text-retro-brown/80 text-center text-sm -mt-2">
               (No puedes votar por tu familia, ¡sé justo! ⚖️)
             </p>
-            <div className="space-y-2 flex-1 overflow-y-auto scrollable-area min-h-0">
+            <div className="space-y-2 flex-1 overflow-y-auto scrollable-area min-h-0 -mx-4 px-4">
               {families.map((family) => {
                 const isSelected = selectedFamily === family.id;
                 return (
