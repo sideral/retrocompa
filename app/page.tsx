@@ -18,33 +18,32 @@ export default function Home() {
         </div>
 
         <Card className="bg-white/95 backdrop-blur-sm">
-          <CardHeader>
+          <CardHeader className="mb-4">
             <CardTitle className="text-center text-retro-teal">
-              ¡Bienvenidos!
+              ¡Bienvenido a RetroCompa 2025!
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-retro-brown">
             <p className="text-lg leading-relaxed">
-              ¡Qué tal, mi gente! Llegó el momento de elegir a los ganadores de esta
-              fiesta retro.
+              ¡Llegó el momento de elegir a los ganadores de esta fiesta retro! 🎊
             </p>
             <p className="text-lg leading-relaxed">
-              Tienes que votar por las{" "}
+              Vota por las{" "}
               <span className="font-bold text-retro-orange">
-                3 mejores pintas retro
+                3 mejores pintas 👗
               </span>{" "}
               y por la{" "}
               <span className="font-bold text-retro-pink">
-                familia que más se lució en el karaoke
+                mejor presentación de karaoke en familia 🎤
               </span>
-              . ¡Así que vamos a darle!
+              .
             </p>
           </CardContent>
         </Card>
 
         <Link href="/select-guest" className="block">
           <Button size="lg" className="w-full text-xl py-6 shadow-2xl">
-            ¡Quiero votar ya! 🎉
+            ¡Empezar a Votar! 🎉
           </Button>
         </Link>
       </div>

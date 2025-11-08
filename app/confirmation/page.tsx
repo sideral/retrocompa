@@ -45,7 +45,7 @@ export default function Confirmation() {
     <div className="min-h-screen bg-sunburst flex flex-col items-center justify-center px-4 py-8">
       <div className="max-w-md w-full space-y-8">
         <Card className="bg-white/95 backdrop-blur-sm">
-          <CardHeader>
+          <CardHeader className="mb-4">
             <CardTitle className="text-center text-retro-teal text-4xl">
               ¡Listo! 🎉
             </CardTitle>
@@ -53,11 +53,11 @@ export default function Confirmation() {
           <CardContent className="space-y-6 text-center">
             <p className="text-retro-brown text-xl leading-relaxed">
               ¡Tus votos han sido enviados! Ya hiciste tu parte para elegir a
-              los más chéveres de la fiesta.
+              los más chéveres de la fiesta. 🎯
             </p>
             <p className="text-retro-brown text-lg leading-relaxed">
               Ahora sí, sigue disfrutando de la fiesta y a ver quién se lleva los
-              premios. ¡Que la pases de lo mejor!
+              premios. ¡Que la pases de lo mejor! 🎉
             </p>
             <div className="pt-4">
               <Link href="/">

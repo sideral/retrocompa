@@ -90,23 +90,26 @@ function VoteCostumeContent() {
     <div className="h-screen bg-sunburst pt-20 pb-24 flex flex-col">
       <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full">
         <Card className="bg-white/95 flex flex-col flex-1 min-h-0">
-          <CardHeader className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 pb-4 flex-shrink-0">
+          <CardHeader className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 pb-4 mb-4 flex-shrink-0">
             <CardTitle className="text-center text-retro-teal text-4xl font-bold">
-              Mejor Pinta
+              Voto Mejor Pinta 👗
             </CardTitle>
             <div className="text-center mt-4">
-              <div className="text-2xl font-bold text-retro-orange">
+              <div className="text-3xl font-bold text-retro-orange">
                 {selectedGuests.size}/3 <span className="text-retro-brown font-semibold">Seleccionados</span>
               </div>
             </div>
           </CardHeader>
           <CardContent className="space-y-4 flex flex-col flex-1 min-h-0">
             <div className="text-center space-y-2 flex-shrink-0">
-              <p className="text-retro-brown text-xl font-semibold">
-                Elige a las{" "}
-                <span className="font-bold text-retro-orange text-3xl">3</span>{" "}
-                <span className="font-bold text-retro-orange text-2xl">pintas más cheveres</span>
-                , no importa el orden.
+              <p className="text-retro-brown text-lg font-semibold">
+                Elige las{" "}
+                <span className="font-bold text-retro-orange text-2xl">3</span>{" "}
+                <span className="font-bold text-retro-orange text-xl">pintas más cheveres</span>
+                , no importa el orden. 🎨
+              </p>
+              <p className="text-retro-brown/80 text-center text-sm">
+                (No puedes votar por ti, ¡lo siento! 😅)
               </p>
             </div>
             <div className="space-y-6 flex-1 overflow-y-auto scrollable-area min-h-0">

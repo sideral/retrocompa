@@ -71,7 +71,7 @@ export default function Winners() {
       <div className="max-w-2xl mx-auto space-y-6">
         <div className="text-center">
           <h1 className="text-5xl font-groovy text-retro-brown mb-2">
-            Resultados
+            Resultados 🏆
           </h1>
           <p className="text-retro-brown text-lg">
             Total de votos:{" "}
@@ -83,9 +83,9 @@ export default function Winners() {
 
         <div className="grid gap-4 md:grid-cols-2">
           <Card className="bg-white/95">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle className="text-retro-pink text-center text-4xl font-bold">
-                Mejor Karaoke
+                Mejor Karaoke 🎤
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -104,16 +104,16 @@ export default function Winners() {
                 </div>
               ) : (
                 <p className="text-center text-retro-brown/70">
-                  Aún no hay votos
+                  Aún no hay votos 😴
                 </p>
               )}
             </CardContent>
           </Card>
 
           <Card className="bg-white/95">
-            <CardHeader>
+            <CardHeader className="mb-4">
               <CardTitle className="text-retro-orange text-center text-4xl font-bold">
-                Mejor Pinta (Top 2)
+                Mejor Pinta (Top 2) 👗
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -156,7 +156,7 @@ export default function Winners() {
                 </div>
               ) : (
                 <p className="text-center text-retro-brown/70">
-                  Aún no hay votos
+                  Aún no hay votos 😴
                 </p>
               )}
             </CardContent>
@@ -164,7 +164,7 @@ export default function Winners() {
         </div>
 
         <Card className="bg-white/95">
-          <CardHeader>
+          <CardHeader className="mb-4">
             <CardTitle className="text-retro-teal text-center">
               Estado de Votaciones
             </CardTitle>

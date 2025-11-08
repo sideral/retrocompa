@@ -60,14 +60,14 @@ export default function SelectGuest() {
     <div className="h-screen bg-sunburst pt-20 pb-24 flex flex-col">
       <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full">
         <Card className="bg-white/95 flex flex-col flex-1 min-h-0">
-          <CardHeader className="flex-shrink-0">
+          <CardHeader className="flex-shrink-0 mb-4">
             <CardTitle className="text-center text-retro-teal text-4xl font-bold">
-              ¿Quién eres tú?
+              ¡Hola! ¿Quién eres? 👤
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col flex-1 min-h-0">
             <p className="text-retro-brown text-center mb-4 flex-shrink-0">
-              Selecciona tu nombre para comenzar a votar
+              Selecciona tu nombre en la lista para empezar. 👇
             </p>
             <div className="space-y-6 flex-1 overflow-y-auto scrollable-area min-h-0">
                 {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (

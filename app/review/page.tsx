@@ -56,6 +56,10 @@ function ReviewContent() {
     loadNames();
   }, [guestId, costumeVotes, karaokeVote, router]);
 
+  const handleBack = () => {
+    router.back();
+  };
+
   const handleSubmit = async () => {
     if (!guestId || costumeVotes.length !== 3 || !karaokeVote) return;
 
@@ -78,15 +82,15 @@ function ReviewContent() {
     <div className="min-h-screen bg-sunburst pt-20 pb-24">
       <div className="max-w-md mx-auto px-4 space-y-6">
         <Card className="bg-white/95">
-          <CardHeader>
+          <CardHeader className="mb-4">
             <CardTitle className="text-center text-retro-teal">
-              Revisa tus votos
+              Revisa tus votos 👀
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-3">
               <h3 className="font-bold text-retro-orange text-xl">
-                Tus 3 votos para mejor pinta:
+                Tus 3 votos para mejor pinta: 👗
               </h3>
               <ul className="space-y-2 pl-4">
                 {costumeNames.map((name, idx) => (
@@ -103,7 +107,7 @@ function ReviewContent() {
 
             <div className="space-y-3 border-t-2 border-retro-brown/20 pt-4">
               <h3 className="font-bold text-retro-pink text-xl">
-                Tu voto para mejor karaoke:
+                Tu voto para mejor karaoke: 🎤
               </h3>
               <p className="text-retro-brown text-lg pl-4">
                 <span className="mr-2 text-retro-pink">•</span>
@@ -111,8 +115,9 @@ function ReviewContent() {
               </p>
             </div>
 
-            <p className="text-center text-retro-brown text-base font-semibold mt-6">
-              Si quieres cambiar algo, haz click en "Atrás" arriba o envía tu voto con "Confirmar y enviar"
+            <p className="text-center text-retro-brown text-base font-semibold pt-4">
+              ¿Quieres cambiar algo? Usa el botón &quot;Atrás&quot;. Si todo está bien,
+              ¡confirma tu voto! ✨
             </p>
           </CardContent>
         </Card>
@@ -120,14 +125,25 @@ function ReviewContent() {
       
       <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
         <div className="max-w-md mx-auto px-4 py-4">
-          <Button
-            onClick={handleSubmit}
-            disabled={submitting}
-            size="lg"
-            className={`w-full ${!submitting ? 'button-active-pulse' : ''}`}
-          >
-            {submitting ? "Enviando..." : "Confirmar y enviar"}
-          </Button>
+          <div className="flex items-center space-x-4">
+            <Button
+              onClick={handleBack}
+              variant="outline"
+              size="lg"
+              className="w-1/3"
+              disabled={submitting}
+            >
+              Atrás
+            </Button>
+            <Button
+              onClick={handleSubmit}
+              disabled={submitting}
+              size="lg"
+              className={`w-2/3 ${!submitting ? "button-active-pulse" : ""}`}
+            >
+              {submitting ? "Enviando..." : "Confirmar y enviar"}
+            </Button>
+          </div>
         </div>
       </div>
     </div>

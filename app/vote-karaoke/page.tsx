@@ -82,9 +82,9 @@ function VoteKaraokeContent() {
     <div className="h-screen bg-sunburst pt-20 pb-24 flex flex-col">
       <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full">
         <Card className="bg-white/95 flex flex-col flex-1 min-h-0">
-          <CardHeader className="flex-shrink-0">
+          <CardHeader className="flex-shrink-0 mb-4">
             <CardTitle className="text-center text-retro-pink text-4xl font-bold">
-              Mejor Karaoke
+              Mejor Karaoke 🎤
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 flex flex-col flex-1 min-h-0">
@@ -93,7 +93,10 @@ function VoteKaraokeContent() {
               <span className="font-bold text-retro-pink">
                 familia que más se lució
               </span>{" "}
-              en el karaoke. Solo puedes elegir una, así que piénsalo bien.
+              en el karaoke. Solo puedes elegir una, así que piénsalo bien. 🤔
+            </p>
+            <p className="text-retro-brown/80 text-center text-sm -mt-2">
+              (No puedes votar por tu familia, ¡sé justo! ⚖️)
             </p>
             <div className="space-y-2 flex-1 overflow-y-auto scrollable-area min-h-0">
               {families.map((family) => {

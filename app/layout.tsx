@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
+import { Quicksand } from "next/font/google";
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "RetroCompa 2025 - Votaciones",
@@ -10,13 +16,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="es">
-      <body>
-        <Suspense fallback={null}>
+      <body className={quicksand.className}>
+        <Suspense>
           <Navigation />
         </Suspense>
         {children}
