@@ -60,9 +60,7 @@ function VoteCostumeContent() {
   const handleContinue = () => {
     if (selectedGuests.size === 3) {
       const votes = Array.from(selectedGuests);
-      router.push(
-        `/vote-karaoke?guestId=${guestId}&votes=${votes.join(",")}`
-      );
+      router.push(`/vote-karaoke?guestId=${guestId}&votes=${votes.join(",")}`);
     }
   };
 
@@ -96,25 +94,34 @@ function VoteCostumeContent() {
             </CardTitle>
             <div className="text-center mt-4">
               <div className="text-3xl font-bold text-retro-orange">
-                {selectedGuests.size}/3 <span className="text-retro-brown font-semibold">Seleccionados</span>
+                {selectedGuests.size}/3{" "}
+                <span className="text-retro-brown font-semibold">
+                  Seleccionados
+                </span>
               </div>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0 overflow-hidden">
+          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0 overflow-hidden pr-0">
             <div className="text-center space-y-2 flex-shrink-0">
               <p className="text-retro-brown text-lg font-semibold">
                 Elige las{" "}
                 <span className="font-bold text-retro-orange text-2xl">3</span>{" "}
-                <span className="font-bold text-retro-orange text-xl">pintas más cheveres</span>
+                <span className="font-bold text-retro-orange text-xl">
+                  pintas más cheveres
+                </span>
                 , no importa el orden. 🎨
               </p>
               <p className="text-retro-brown/80 text-center text-sm">
                 (No puedes votar por ti, ¡lo siento! 😅)
               </p>
             </div>
-            <div className="space-y-6 flex-1 overflow-y-auto scrollable-area min-h-0 -mx-4 px-4">
-                {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
-                  <div key={familyName} className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50">
+            <div className="space-y-6 flex-1 overflow-y-scroll scrollable-area min-h-0 -mx-4 pl-4 pr-0 border-4 border-retro-brown/50 rounded-lg shadow-sm">
+              {Object.entries(groupedGuests).map(
+                ([familyName, familyGuests]) => (
+                  <div
+                    key={familyName}
+                    className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50"
+                  >
                     <h3 className="font-bold text-retro-brown text-xl text-center">
                       {familyName}
                     </h3>
@@ -146,19 +153,22 @@ function VoteCostumeContent() {
                       })}
                     </div>
                   </div>
-                ))}
+                )
+              )}
             </div>
           </CardContent>
         </Card>
       </div>
-      
+
       <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
         <div className="max-w-md mx-auto px-4 py-4">
           <Button
             onClick={handleContinue}
             disabled={selectedGuests.size !== 3}
             size="lg"
-            className={`w-full ${selectedGuests.size === 3 ? 'button-active-pulse' : ''}`}
+            className={`w-full ${
+              selectedGuests.size === 3 ? "button-active-pulse" : ""
+            }`}
           >
             Continuar
           </Button>
@@ -170,15 +180,16 @@ function VoteCostumeContent() {
 
 export default function VoteCostume() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-retro-gold pt-20 px-4">
-        <div className="max-w-md mx-auto text-center py-20">
-          <p className="text-retro-brown text-xl">Cargando...</p>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-retro-gold pt-20 px-4">
+          <div className="max-w-md mx-auto text-center py-20">
+            <p className="text-retro-brown text-xl">Cargando...</p>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <VoteCostumeContent />
     </Suspense>
   );
 }
-

@@ -65,13 +65,17 @@ export default function SelectGuest() {
               ¡Hola! ¿Quién eres? 👤
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-col flex-1 min-h-0 overflow-hidden">
+          <CardContent className="flex flex-col flex-1 min-h-0 overflow-y-scroll overflow-x-hidden scrollable-area">
             <p className="text-retro-brown text-center mb-4 flex-shrink-0">
               Selecciona tu nombre en la lista para empezar. 👇
             </p>
-            <div className="space-y-6 flex-1 overflow-y-auto scrollable-area min-h-0 -mx-4 px-4">
-                {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
-                  <div key={familyName} className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50">
+            <div className="space-y-6 flex-1 overflow-y-scroll overflow-x-hidden scrollable-area min-h-0 -mx-4 px-4">
+              {Object.entries(groupedGuests).map(
+                ([familyName, familyGuests]) => (
+                  <div
+                    key={familyName}
+                    className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50"
+                  >
                     <h3 className="font-bold text-retro-brown text-xl text-center">
                       {familyName}
                     </h3>
@@ -100,19 +104,20 @@ export default function SelectGuest() {
                       ))}
                     </div>
                   </div>
-                ))}
+                )
+              )}
             </div>
           </CardContent>
         </Card>
       </div>
-      
+
       <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
         <div className="max-w-md mx-auto px-4 py-4">
           <Button
             onClick={handleContinue}
             disabled={!selectedGuest}
             size="lg"
-            className={`w-full ${selectedGuest ? 'button-active-pulse' : ''}`}
+            className={`w-full ${selectedGuest ? "button-active-pulse" : ""}`}
           >
             Continuar
           </Button>
@@ -121,4 +126,3 @@ export default function SelectGuest() {
     </div>
   );
 }
-

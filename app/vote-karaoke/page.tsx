@@ -87,7 +87,7 @@ function VoteKaraokeContent() {
               Mejor Karaoke 🎤
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0 overflow-hidden">
+          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0 overflow-hidden pr-0">
             <p className="text-retro-brown text-center text-lg flex-shrink-0">
               Elige a la{" "}
               <span className="font-bold text-retro-pink">
@@ -98,7 +98,7 @@ function VoteKaraokeContent() {
             <p className="text-retro-brown/80 text-center text-sm -mt-2">
               (No puedes votar por tu familia, ¡sé justo! ⚖️)
             </p>
-            <div className="space-y-2 flex-1 overflow-y-auto scrollable-area min-h-0 -mx-4 px-4">
+            <div className="space-y-2 flex-1 overflow-y-scroll scrollable-area min-h-0 -mx-4 pl-4 pr-0">
               {families.map((family) => {
                 const isSelected = selectedFamily === family.id;
                 return (

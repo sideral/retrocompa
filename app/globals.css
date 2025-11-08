@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Bungee&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Bungee&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +14,7 @@
   html {
     min-height: 100%;
   }
-  
+
   body {
     min-height: 100%;
     @apply bg-retro-gold text-retro-brown;
@@ -27,55 +27,88 @@
   .bg-sunburst {
     background: repeating-conic-gradient(
       from 0deg at 50% 40%,
-      #FFD700 0deg 3deg,
-      #FFE44D 3deg 6deg
+      #ffd700 0deg 3deg,
+      #ffe44d 3deg 6deg
     );
     background-size: 100% 100%;
     background-attachment: fixed;
   }
-  
+
   /* Custom scrollbar styling */
   .scrollable-area {
-    scrollbar-width: thick;
-    scrollbar-color: rgb(251 146 60) rgb(229 231 235);
+    scrollbar-width: auto !important;
+    scrollbar-color: rgb(249 115 22) rgb(180 180 180) !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
   }
-  
+
   .scrollable-area::-webkit-scrollbar {
-    width: 12px;
+    width: 28px !important;
+    -webkit-appearance: none !important;
+    display: block !important;
+    background: rgb(180 180 180) !important;
   }
-  
+
+  .scrollable-area::-webkit-scrollbar:vertical {
+    width: 28px !important;
+  }
+
+  .scrollable-area::-webkit-scrollbar:horizontal {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
   .scrollable-area::-webkit-scrollbar-track {
-    background: rgb(229 231 235);
-    border-radius: 6px;
+    background: rgb(180 180 180) !important;
+    border-radius: 14px !important;
+    border: 4px solid rgb(120 120 120) !important;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4) !important;
+    margin: 6px !important;
   }
-  
+
   .scrollable-area::-webkit-scrollbar-thumb {
-    background: rgb(251 146 60);
-    border-radius: 6px;
-    border: 2px solid rgb(229 231 235);
+    background: rgb(249 115 22) !important;
+    border-radius: 14px !important;
+    border: 5px solid rgb(180 180 180) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6),
+      inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
+    min-height: 60px !important;
   }
-  
+
   .scrollable-area::-webkit-scrollbar-thumb:hover {
-    background: rgb(249 115 22);
+    background: rgb(234 88 12) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7),
+      inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
   }
-  
+
+  .scrollable-area::-webkit-scrollbar-thumb:active {
+    background: rgb(194 65 12) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8),
+      inset 0 2px 4px rgba(255, 255, 255, 0.4) !important;
+  }
+
   /* Gradient fade effect for scrollable content */
   .scrollable-with-fade {
     position: relative;
   }
-  
+
   .scrollable-with-fade::after {
-    content: '';
+    content: "";
     position: sticky;
     bottom: 0;
     left: 0;
     right: 0;
     height: 20px;
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8));
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.8)
+    );
     pointer-events: none;
     z-index: 10;
   }
-  
+
   /* Dramatic button pulse animation when active */
   @keyframes dramatic-pulse {
     0% {
@@ -94,7 +127,8 @@
       background-color: rgb(59, 130, 246);
       color: white;
       transform: scale(1.1);
-      box-shadow: 0 0 0 15px rgba(59, 130, 246, 0.3), 0 25px 30px -5px rgba(59, 130, 246, 0.7);
+      box-shadow: 0 0 0 15px rgba(59, 130, 246, 0.3),
+        0 25px 30px -5px rgba(59, 130, 246, 0.7);
     }
     75% {
       background-color: rgb(34, 197, 94);
@@ -109,11 +143,10 @@
       box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.7);
     }
   }
-  
+
   .button-active-pulse:not(:disabled) {
     animation: dramatic-pulse 0.6s ease-in-out infinite;
     font-weight: 700 !important;
     border: none !important;
   }
 }
-
