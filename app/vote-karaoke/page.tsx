@@ -61,7 +61,9 @@ function VoteKaraokeContent() {
   const handleContinue = () => {
     if (selectedFamily) {
       router.push(
-        `/review?guestId=${guestId}&costumeVotes=${costumeVotes.join(",")}&karaokeVote=${selectedFamily}`
+        `/review?guestId=${guestId}&costumeVotes=${costumeVotes.join(
+          ","
+        )}&karaokeVote=${selectedFamily}`
       );
     }
   };
@@ -77,7 +79,7 @@ function VoteKaraokeContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-24">
+    <div className="min-h-screen bg-sunburst pt-20 pb-24">
       <div className="max-w-md mx-auto px-4 space-y-6">
         <Card className="bg-white/95">
           <CardHeader>
@@ -88,47 +90,49 @@ function VoteKaraokeContent() {
           <CardContent className="space-y-4">
             <p className="text-retro-brown text-center text-lg">
               Elige a la{" "}
-              <span className="font-bold text-retro-pink">familia que más se lució</span>{" "}
+              <span className="font-bold text-retro-pink">
+                familia que más se lució
+              </span>{" "}
               en el karaoke. Solo puedes elegir una, así que piénsalo bien.
             </p>
             <div className="space-y-2 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
-                {families.map((family) => {
-                  const isSelected = selectedFamily === family.id;
-                  return (
-                    <label
-                      key={family.id}
-                      className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                        isSelected
-                          ? "border-retro-pink bg-retro-pink/20 shadow-lg"
-                          : "border-retro-brown/30 hover:border-retro-pink"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="family"
-                        value={family.id}
-                        checked={isSelected}
-                        onChange={(e) => setSelectedFamily(e.target.value)}
-                        className="mr-3 h-5 w-5 text-retro-pink"
-                      />
-                      <span className="text-retro-brown font-medium text-lg">
-                        {family.name}
-                      </span>
-                    </label>
-                  );
-                })}
+              {families.map((family) => {
+                const isSelected = selectedFamily === family.id;
+                return (
+                  <label
+                    key={family.id}
+                    className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                      isSelected
+                        ? "border-retro-pink bg-retro-pink/20 shadow-lg"
+                        : "border-retro-brown/30 hover:border-retro-pink"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="family"
+                      value={family.id}
+                      checked={isSelected}
+                      onChange={(e) => setSelectedFamily(e.target.value)}
+                      className="mr-3 h-5 w-5 text-retro-pink"
+                    />
+                    <span className="text-retro-brown font-medium text-lg">
+                      {family.name}
+                    </span>
+                  </label>
+                );
+              })}
             </div>
           </CardContent>
         </Card>
       </div>
-      
+
       <div className="fixed bottom-0 left-0 right-0 bg-retro-gold border-t-4 border-retro-brown shadow-lg z-40">
         <div className="max-w-md mx-auto px-4 py-4">
           <Button
             onClick={handleContinue}
             disabled={!selectedFamily}
             size="lg"
-            className={`w-full ${selectedFamily ? 'button-active-pulse' : ''}`}
+            className={`w-full ${selectedFamily ? "button-active-pulse" : ""}`}
           >
             Continuar
           </Button>
@@ -140,15 +144,16 @@ function VoteKaraokeContent() {
 
 export default function VoteKaraoke() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-retro-gold pt-20 px-4">
-        <div className="max-w-md mx-auto text-center py-20">
-          <p className="text-retro-brown text-xl">Cargando...</p>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-retro-gold pt-20 px-4">
+          <div className="max-w-md mx-auto text-center py-20">
+            <p className="text-retro-brown text-xl">Cargando...</p>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <VoteKaraokeContent />
     </Suspense>
   );
 }
-

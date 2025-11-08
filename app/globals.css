@@ -18,6 +18,16 @@
 }
 
 @layer utilities {
+  /* Sunburst background pattern */
+  .bg-sunburst {
+    background: repeating-conic-gradient(
+      from 0deg at 50% 40%,
+      #FFD700 0deg 3deg,
+      #FFE44D 3deg 6deg
+    );
+    background-size: 100% 100%;
+  }
+  
   /* Custom scrollbar styling */
   .scrollable-area {
     scrollbar-width: thick;

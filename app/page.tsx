@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold via-retro-orange/20 to-retro-pink/20 flex flex-col items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-sunburst flex flex-col items-center justify-center px-4 py-8">
       <div className="max-w-md w-full space-y-6">
         <div className="text-center space-y-4">
           <div className="flex justify-center">

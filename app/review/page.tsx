@@ -75,7 +75,7 @@ function ReviewContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 pt-20 pb-24">
+    <div className="min-h-screen bg-sunburst pt-20 pb-24">
       <div className="max-w-md mx-auto px-4 space-y-6">
         <Card className="bg-white/95">
           <CardHeader>

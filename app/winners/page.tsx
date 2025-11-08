@@ -67,7 +67,7 @@ export default function Winners() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-retro-gold to-retro-pink/20 px-4 py-8">
+    <div className="min-h-screen bg-sunburst px-4 py-8">
       <div className="max-w-2xl mx-auto space-y-6">
         <div className="text-center">
           <h1 className="text-5xl font-groovy text-retro-brown mb-2">
