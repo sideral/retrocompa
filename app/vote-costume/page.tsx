@@ -92,14 +92,6 @@ function VoteCostumeContent() {
             <CardTitle className="text-center text-retro-teal text-4xl font-bold">
               Voto Mejor Pinta 👗
             </CardTitle>
-            <div className="text-center mt-4">
-              <div className="text-3xl font-bold text-retro-orange">
-                {selectedGuests.size}/3{" "}
-                <span className="text-retro-brown font-semibold">
-                  Seleccionados
-                </span>
-              </div>
-            </div>
           </CardHeader>
           <CardContent className="flex flex-col flex-1 min-h-0 overflow-hidden">
             <div className="text-center space-y-2 flex-shrink-0 mb-4 px-6">
