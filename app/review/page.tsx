@@ -111,8 +111,8 @@ function ReviewContent() {
               </p>
             </div>
 
-            <p className="text-center text-retro-brown/70 text-sm mt-6">
-              ¿Todo bien? Dale a confirmar para enviar tus votos.
+            <p className="text-center text-retro-brown text-base font-semibold mt-6">
+              Si quieres cambiar algo, haz click en "Atrás" arriba o envía tu voto con "Confirmar y enviar"
             </p>
           </CardContent>
         </Card>

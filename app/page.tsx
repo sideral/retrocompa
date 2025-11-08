@@ -25,20 +25,19 @@ export default function Home() {
           </CardHeader>
           <CardContent className="space-y-4 text-retro-brown">
             <p className="text-lg leading-relaxed">
-              ¡Qué tal, mi gente! Llegó el momento de ponerle sabor a esta
-              fiesta retro. Estamos aquí para elegir a los más chéveres del
-              evento.
+              ¡Qué tal, mi gente! Llegó el momento de elegir a los ganadores de esta
+              fiesta retro.
             </p>
             <p className="text-lg leading-relaxed">
-              Tienes que votar por los{" "}
+              Tienes que votar por las{" "}
               <span className="font-bold text-retro-orange">
-                3 mejores pintas
+                3 mejores pintas retro
               </span>{" "}
               y por la{" "}
               <span className="font-bold text-retro-pink">
                 familia que más se lució en el karaoke
               </span>
-              . ¡Así que dale, que la fiesta está que arde!
+              . ¡Así que vamos a darle!
             </p>
           </CardContent>
         </Card>

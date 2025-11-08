@@ -56,8 +56,8 @@ export default function Confirmation() {
               los más chéveres de la fiesta.
             </p>
             <p className="text-retro-brown text-lg leading-relaxed">
-              Ahora sí, a disfrutar de la fiesta y a ver quién se lleva los
-              premios. ¡Que la pasen de lo mejor!
+              Ahora sí, sigue disfrutando de la fiesta y a ver quién se lleva los
+              premios. ¡Que la pases de lo mejor!
             </p>
             <div className="pt-4">
               <Link href="/">

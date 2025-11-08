@@ -87,10 +87,10 @@ function VoteCostumeContent() {
   }, {} as Record<string, Guest[]>);
 
   return (
-    <div className="min-h-screen bg-sunburst pt-20 pb-24">
-      <div className="max-w-md mx-auto px-4 space-y-6">
-        <Card className="bg-white/95">
-          <CardHeader className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 pb-4">
+    <div className="h-screen bg-sunburst pt-20 pb-24 flex flex-col">
+      <div className="max-w-md mx-auto px-4 flex-1 flex flex-col min-h-0 w-full">
+        <Card className="bg-white/95 flex flex-col flex-1 min-h-0">
+          <CardHeader className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 pb-4 flex-shrink-0">
             <CardTitle className="text-center text-retro-teal text-4xl font-bold">
               Mejor Pinta
             </CardTitle>
@@ -100,19 +100,16 @@ function VoteCostumeContent() {
               </div>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="text-center space-y-2">
+          <CardContent className="space-y-4 flex flex-col flex-1 min-h-0">
+            <div className="text-center space-y-2 flex-shrink-0">
               <p className="text-retro-brown text-xl font-semibold">
-                Elige a los{" "}
+                Elige a las{" "}
                 <span className="font-bold text-retro-orange text-3xl">3</span>{" "}
-                <span className="font-bold text-retro-orange text-2xl">más chéveres</span>
-              </p>
-              <p className="text-retro-brown text-sm">
-                con sus pintas. No importa el orden, solo elige a los que más
-                te cuadraron.
+                <span className="font-bold text-retro-orange text-2xl">pintas más cheveres</span>
+                , no importa el orden.
               </p>
             </div>
-            <div className="space-y-6 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
+            <div className="space-y-6 flex-1 overflow-y-auto scrollable-area min-h-0">
                 {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
                   <div key={familyName} className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50">
                     <h3 className="font-bold text-retro-brown text-xl text-center">
