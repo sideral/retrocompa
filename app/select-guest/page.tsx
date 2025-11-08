@@ -69,13 +69,13 @@ export default function SelectGuest() {
             <p className="text-retro-brown text-center mb-4">
               Selecciona tu nombre para comenzar a votar
             </p>
-            <div className="space-y-4 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
+            <div className="space-y-6 max-h-[calc(100vh-280px)] overflow-y-auto scrollable-area">
                 {Object.entries(groupedGuests).map(([familyName, familyGuests]) => (
-                  <div key={familyName} className="space-y-2">
-                    <h3 className="font-bold text-retro-brown text-lg border-b-2 border-retro-teal pb-1">
+                  <div key={familyName} className="space-y-3 border-2 border-retro-teal/40 rounded-lg p-4 bg-white/50">
+                    <h3 className="font-bold text-retro-brown text-xl text-center">
                       {familyName}
                     </h3>
-                    <div className="space-y-2 pl-4">
+                    <div className="space-y-2 pl-2">
                       {familyGuests.map((guest) => (
                         <label
                           key={guest.id}

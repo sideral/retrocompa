@@ -99,26 +99,32 @@ function VoteKaraokeContent() {
               {families.map((family) => {
                 const isSelected = selectedFamily === family.id;
                 return (
-                  <label
+                  <div
                     key={family.id}
-                    className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                    className={`border-2 rounded-lg p-4 bg-white/50 cursor-pointer transition-all ${
                       isSelected
-                        ? "border-retro-pink bg-retro-pink/20 shadow-lg"
-                        : "border-retro-brown/30 hover:border-retro-pink"
+                        ? "border-retro-pink shadow-lg"
+                        : "border-retro-teal/40 hover:border-retro-pink"
                     }`}
                   >
-                    <input
-                      type="radio"
-                      name="family"
-                      value={family.id}
-                      checked={isSelected}
-                      onChange={(e) => setSelectedFamily(e.target.value)}
-                      className="mr-3 h-5 w-5 text-retro-pink"
-                    />
-                    <span className="text-retro-brown font-medium text-lg">
-                      {family.name}
-                    </span>
-                  </label>
+                    <label className="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="family"
+                        value={family.id}
+                        checked={isSelected}
+                        onChange={(e) => setSelectedFamily(e.target.value)}
+                        className="mr-3 h-5 w-5 text-retro-pink"
+                      />
+                      <span
+                        className={`text-retro-brown font-medium text-lg ${
+                          isSelected ? "font-bold" : ""
+                        }`}
+                      >
+                        {family.name}
+                      </span>
+                    </label>
+                  </div>
                 );
               })}
             </div>
